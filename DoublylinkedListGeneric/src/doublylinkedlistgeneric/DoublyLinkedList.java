@@ -51,7 +51,22 @@ public class DoublyLinkedList<T> {
              }
              System.out.println("null");                  
          }         
-    }    
+    }
+    int sizeList(){
+        Node temp = head;
+        int counter = 0;
+        
+        if(temp == null)
+            throw new myException("There is no item, list is empty");
+        else{
+            while(temp !=null)
+            {
+                counter++;
+                temp = temp.next;
+            }                
+        }
+      return counter;
+    }
 }
 class myException extends RuntimeException{
 
