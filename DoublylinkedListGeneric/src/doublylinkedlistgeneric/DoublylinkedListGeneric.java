@@ -22,8 +22,13 @@ public class DoublylinkedListGeneric {
         lst1.addLast("alii");
         lst1.addLast("veliii");
         lst1.addLast("last item");
+        lst1.addFirst("fatih");
+        lst1.addFirst("sultan");
+        
         lst1.printList();
         System.out.println("List size is..:"+lst1.sizeList());
+        
+        
     }
     
 }
