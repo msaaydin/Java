@@ -49,15 +49,10 @@ public class DoublyLinkedList<T> {
                  System.out.print(temp.data+" => ");
                  temp = temp.next;
              }
-             System.out.println("null"); 
-                 
+             System.out.println("null");                  
          }         
-         
-        
-    }
-    
+    }    
 }
-
 class myException extends RuntimeException{
 
     public myException(String message) {
