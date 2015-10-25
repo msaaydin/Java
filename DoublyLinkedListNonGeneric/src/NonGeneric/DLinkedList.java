@@ -1,7 +1,7 @@
 
 package NonGeneric;
 
-public class DLinkedList extends Object{
+public class DLinkedList {
     Node head;
     
     void addFirst(int data){
@@ -98,12 +98,14 @@ public class DLinkedList extends Object{
         else{
             Node temp = head;
             while( temp!= null){
-                System.out.println(temp.data);
+                System.out.print(temp.data+"=> ");
                 temp = temp.next;
             }
+            System.out.println();
         }
     }
     
+    @Override
     protected DLinkedList clone(){
         return this;
     }
