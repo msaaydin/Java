@@ -15,7 +15,7 @@ public class Test {
         dlist.addLast(5454);        
         dlist.insertAfter(94, 0);
         dlist.insertAfter(4, 2);
-        dlist.removeExactElement(5454);
+      //  dlist.removeExactElement(5454);
         dlist.insertAfter(94888, 5);  
         dlist.printList();
         dlist.removeExactElement(87);

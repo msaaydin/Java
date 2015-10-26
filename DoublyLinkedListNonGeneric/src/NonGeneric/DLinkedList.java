@@ -109,10 +109,10 @@ public class DLinkedList {
                     }                        
                 }                    
                 temp = temp.next;
-            }
-            
+            }            
         }
        
+       temp = null;
     }
     
     
