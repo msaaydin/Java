@@ -90,7 +90,7 @@ public class DLinkedList {
     }
     void removeExactElement(int data){
        Node temp = head;
-       if(head == null)
+       if(temp == null)
             throw new LinkedListException("LinkedList is empty");
        if( temp.prev == null && temp.data == data){
             head = head.next;
@@ -106,8 +106,7 @@ public class DLinkedList {
                     else{ // middle node
                         temp.prev.next = temp.next;
                         temp.next.prev = temp.prev.next;
-                    }
-                        
+                    }                        
                 }                    
                 temp = temp.next;
             }

@@ -10,18 +10,23 @@ public class Test {
         dlist.addLast(8785);
         dlist.addLast(87);
         dlist.addLast(5);
+        dlist.addLast(5);        
+        dlist.addLast(5);
         dlist.addLast(5454);        
         dlist.insertAfter(94, 0);
         dlist.insertAfter(4, 2);
+        dlist.removeExactElement(5454);
         dlist.insertAfter(94888, 5);  
         dlist.printList();
         dlist.removeExactElement(87);
         dlist.printList();
+        dlist.removeExactElement(5);
+        dlist.printList();        
         dlist.removeExactElement(25);
         dlist.printList();
-        dlist.removeExactElement(5454);
+     
         dlist.printList();
         dlist.removeExactElement(8785);
-        dlist.printList();       
+        dlist.printList();    
     }
 }
