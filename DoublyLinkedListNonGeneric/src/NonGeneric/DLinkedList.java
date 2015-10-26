@@ -44,7 +44,7 @@ public class DLinkedList {
             throw new LinkedListException("LinkedList is empty");
         
         Node n = new Node(data);
-        Node temp = head;
+        Node temp = head; // head e dokunma
         int i = 0;
         while( position > i && temp != null){
             temp = temp.next;
@@ -64,19 +64,16 @@ public class DLinkedList {
     
     Node removeFirst(){
         if(head == null)
-            throw new LinkedListException("LinkedList is empty");
-        
+            throw new LinkedListException("LinkedList is empty");        
         Node temp = head;        
         head = head.next;
-        head.prev = null;
-    
+        head.prev = null;    
         return temp;
     }
     
     Node removeLast(){
         if(head == null)
-            throw new LinkedListException("LinkedList is empty");
-        
+            throw new LinkedListException("LinkedList is empty");        
         Node temp = head;
         if( head.next == null){
             head = null;
@@ -90,33 +87,6 @@ public class DLinkedList {
         }
         return temp;
             
-    }
-    void removeExactElement(int data){
-       Node temp = head;
-       if(head == null)
-            throw new LinkedListException("LinkedList is empty");
-       if( temp.prev == null && temp.data == data){
-            head = head.next;
-            head.prev = null;
-        }
-        else{
-            while( temp != null){                
-                if (temp.data == data){
-                    if (temp.next == null){  // last node
-                        temp.prev.next = null;
-                        temp.prev = null;                        
-                    }
-                    else{ // middle node
-                        temp.prev.next = temp.next;
-                        temp.next.prev = temp.prev.next;
-                    }
-                        
-                }                    
-                temp = temp.next;
-            }
-            
-        }
-       
     }
     
     void printList(){
