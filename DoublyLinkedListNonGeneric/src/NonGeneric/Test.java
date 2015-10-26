@@ -23,8 +23,7 @@ public class Test {
         dlist.removeExactElement(5);
         dlist.printList();        
         dlist.removeExactElement(25);
-        dlist.printList();
-     
+        dlist.printList();     
         dlist.printList();
         dlist.removeExactElement(8785);
         dlist.printList();    
