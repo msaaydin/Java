@@ -11,6 +11,7 @@ public class DLinkedList {
             head = n;
         }
         else{
+            n.prev = null;
             n.next = head;
             head.prev = n;
             head = n;
@@ -89,6 +90,33 @@ public class DLinkedList {
         }
         return temp;
             
+    }
+    void removeExactElement(int data){
+       Node temp = head;
+       if(head == null)
+            throw new LinkedListException("LinkedList is empty");
+       if( temp.prev == null && temp.data == data){
+            head = head.next;
+            head.prev = null;
+        }
+        else{
+            while( temp != null){                
+                if (temp.data == data){
+                    if (temp.next == null){  // last node
+                        temp.prev.next = null;
+                        temp.prev = null;                        
+                    }
+                    else{ // middle node
+                        temp.prev.next = temp.next;
+                        temp.next.prev = temp.prev.next;
+                    }
+                        
+                }                    
+                temp = temp.next;
+            }
+            
+        }
+       
     }
     
     void printList(){
