@@ -50,12 +50,19 @@ public class LStack {
     public static void main(String[] args) {
         
         LStack s = new LStack();
-        s.push(0);
+        s.push(88);
         s.push(1);
         s.push(2);
+        s.push(7852);
+        s.push(286);
+        s.push(296);
+        s.push(27463);        
         s.pop();
         s.pop();
         s.pop();
+      
+        
+        //s.pop();
         s.print();
     }
     
