@@ -25,7 +25,7 @@ public class LineerStack {
           System.out.println(s.pop());
            System.out.println(s.pop());
             System.out.println(s.pop());
-             System.out.println(s.pop());
+         
              
     }
     
