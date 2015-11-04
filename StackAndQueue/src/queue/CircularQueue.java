@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package queue;
 
 import java.lang.reflect.Array;
 
-/**
- *
- * @author Beyza Karabul
- * @param <E>
- */
+
 public class CircularQueue <E> {
     E array[];
     int front=0, rear=0;

@@ -3,11 +3,7 @@ package stack;
 
 import java.util.ArrayList;
 
-/**
- *
- 
- * @param <E>
- */
+
 public class ArrayListStack <E> {
     ArrayList<E> list = new ArrayList();
     int size;
