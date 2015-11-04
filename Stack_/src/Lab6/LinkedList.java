@@ -3,9 +3,7 @@
 package Lab6;
 
 public class LinkedList {
-
     Node head;
-
     void addFirst(int data) {
         Node n = new Node(data);
         n.next = head;
