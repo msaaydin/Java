@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package fibonaccitest;
 
 /**
@@ -11,8 +7,7 @@ package fibonaccitest;
  */
 public class FibonacciTesT {
 
-     static long[]  NonRecursiveFibonancci(int term)
-    {
+     static long[]  NonRecursiveFibonancci(int term){
         long [] fib = new long[term];                
         fib[0] = 0;
         fib[1] = 1;
@@ -21,19 +16,26 @@ public class FibonacciTesT {
         }
         return fib;
     }
-     static long fibonacci(long n)
-    {
+     static long fibonacci(long n){
             if (n == 0 || n == 1)  // base case
                return n;
             else
                 return fibonacci(n-1) + fibonacci(n-2);
     }
     public static void main(String[] args) {
-        long fbc[] = NonRecursiveFibonancci(30);
+         
+        long start = System.nanoTime();
+        long fbc[] = NonRecursiveFibonancci(100000);
+        long end = System.nanoTime();
+        long executiontime = end-start;
+        
         for (long a : fbc) {
-            System.out.print(a + " - ");        }
+            System.out.print(a + " - ");        
+        }
+        
         System.out.println("");
         System.out.println("*****************************");
+        System.out.println("program execution time.."+ executiontime +"..:nono seconds");
         //System.out.println("100 eleman için sonuç:"+fibonacci(100));
     }
     
