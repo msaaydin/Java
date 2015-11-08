@@ -45,8 +45,7 @@ public class FibonacciTesT {
         long start_recursive = System.nanoTime();
         System.out.println("recursive  :"+fibonacci(10));
         long end_recursive = System.nanoTime();
-        long executiontime_of_recursive = end_recursive - start_recursive;
-        
+        long executiontime_of_recursive = end_recursive - start_recursive;        
         System.out.println("program execution time.."+ executiontime_of_recursive +"..:nono seconds");
     }    
 }
