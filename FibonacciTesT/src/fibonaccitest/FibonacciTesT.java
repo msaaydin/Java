@@ -11,9 +11,6 @@ package fibonaccitest;
  */
 public class FibonacciTesT {
 
-    /**
-     * @param args the command line arguments
-     */
      static long[]  NonRecursiveFibonancci(int term)
     {
         long [] fib = new long[term];                
@@ -32,13 +29,12 @@ public class FibonacciTesT {
                 return fibonacci(n-1) + fibonacci(n-2);
     }
     public static void main(String[] args) {
-        // TODO code application logic here
-        long fbc[] = NonRecursiveFibonancci(100);
+        long fbc[] = NonRecursiveFibonancci(30);
         for (long a : fbc) {
             System.out.print(a + " - ");        }
         System.out.println("");
         System.out.println("*****************************");
-        System.out.println("100 eleman için sonuç:"+fibonacci(100));
+        //System.out.println("100 eleman için sonuç:"+fibonacci(100));
     }
     
 }
