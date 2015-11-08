@@ -18,6 +18,7 @@ public class FibonacciTesT {
             long [] fib = new long[term];                
             fib[0] = 0;
             fib[1] = 1;
+            
             for (int i = 2; i <term; i++) {
                 fib[i] = fib[i-1] + fib[i-2];
             }
@@ -33,7 +34,7 @@ public class FibonacciTesT {
      
     public static void main(String[] args) {         
         long start = System.nanoTime();
-        long fbc[] = NonRecursiveFibonancci(10);
+        long fbc[] = NonRecursiveFibonancci(65);
         long end = System.nanoTime();
         long executiontime = end - start;
         
@@ -41,11 +42,11 @@ public class FibonacciTesT {
             System.out.print(a + " - ");        
         }        
         System.out.println("");      
-        System.out.println("program execution time.."+ executiontime +"..:nono seconds");
+        System.out.println("program execution time.."+ executiontime +"..:nano seconds");
         long start_recursive = System.nanoTime();
-        System.out.println("recursive  :"+fibonacci(10));
+        System.out.println("recursive  :"+fibonacci(65));
         long end_recursive = System.nanoTime();
         long executiontime_of_recursive = end_recursive - start_recursive;        
-        System.out.println("program execution time.."+ executiontime_of_recursive +"..:nono seconds");
+        System.out.println("program execution time.."+ executiontime_of_recursive +"..:nano seconds");
     }    
 }
