@@ -58,17 +58,23 @@ public class CircularQueue <E> {
     
     public static void main(String[] args) {
         try {
-            CircularQueue kuyruk = new CircularQueue(Integer.class,3);
+            CircularQueue kuyruk = new CircularQueue(Integer.class,4);
             kuyruk.enqueue(1);
             kuyruk.enqueue(2);
             kuyruk.enqueue(3);
             kuyruk.printQueue();
-            System.out.println("Silinen: " + kuyruk.dequeue() );
-            System.out.println("Silinen: " + kuyruk.dequeue() );
-            System.out.println("Silinen: " + kuyruk.dequeue() );
-            System.out.println("Silinen: " + kuyruk.dequeue() );
-            kuyruk.enqueue(6);
+//            System.out.println("Silinen: " + kuyruk.dequeue() );
+//            System.out.println("Silinen: " + kuyruk.dequeue() );
+//            System.out.println("Silinen: " + kuyruk.dequeue() );
+
+           kuyruk.enqueue(6);
+           System.out.println("Silinen: " + kuyruk.dequeue() );
             kuyruk.printQueue();
+             kuyruk.enqueue(3949);
+             kuyruk.printQueue();
+
+            kuyruk.enqueue(5453);
+
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
