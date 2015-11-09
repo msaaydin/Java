@@ -74,5 +74,8 @@ public class KaydırmalıQueue <E>{
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+       int a = 5;
+        System.out.println(a >> 1);
+        
     }
 }
