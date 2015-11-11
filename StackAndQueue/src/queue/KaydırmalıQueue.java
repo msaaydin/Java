@@ -75,6 +75,7 @@ public class KaydırmalıQueue <E>{
             System.out.println(ex.getMessage());
         }
        int a = 5;
+       byte aa = 127;
         System.out.println(a >> 1);
         
     }
