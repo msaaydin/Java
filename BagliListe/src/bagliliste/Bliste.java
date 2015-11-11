@@ -19,7 +19,13 @@ public class Bliste {
        {
             while(temp!=null)
             {
-                System.out.print(temp.data +"=>");
+                long t = System.nanoTime() - temp.time;
+                for (int i = 0; i < 1000000; i++) {
+                    
+                }
+                System.out.print(temp.data + " :"+t+"=>");
+                
+                
                 temp = temp.next;
             }
        }
@@ -37,14 +43,17 @@ public class Bliste {
            {
               temp = temp.next;
            }
-           temp.next = newNode;               
+           temp.next = newNode; 
+           
      }
    public void addElementFront(int data)
     {
            Node newNode = new Node();
            newNode.data = data;
+           newNode.time = System.nanoTime();
            newNode.next = head;
-           head = newNode;                      
+           head = newNode;  
+           
     }
    void insertAfter(int data, int position){
         if( position < 0 )

@@ -8,5 +8,6 @@ package bagliliste;
 
 public class Node {
     int data;
+    long time;
     Node next;
 }

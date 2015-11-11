@@ -19,7 +19,7 @@ public class BagliListe {
         
         Bliste lst1 = new Bliste(12);
         lst1.addElementFront(45);
-        lst1.addElementFront(6523);
+        lst1.addElementFront(6523);        
         lst1.addElementFront(623);
         lst1.addElementFront(98);
         lst1.addElementFront(4);
