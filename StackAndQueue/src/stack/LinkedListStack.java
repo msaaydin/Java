@@ -10,14 +10,12 @@ public class LinkedListStack <E>{
         list.addFirst(data);
         size++;
     }
-
     E pop() {
      
             size--;
             return (E) list.removeFirst().data;
        
     }
-
     int size() {
         return size;
     }
