@@ -9,6 +9,7 @@ public class DLinkedList {
         
         if( head == null){
             head = n;
+            
         }
         else{
             n.prev = null;
