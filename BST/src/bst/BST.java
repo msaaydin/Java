@@ -23,7 +23,10 @@ public class BST {
         tree.insert(29);
         tree.insert(46);
         tree.insert(11);       
-        System.out.println(tree.LeafCount(tree.root));
+        System.out.println("Total leaf number...:"+tree.LeafCount(tree.root));        
+        
+        
+        
         
     }
     
