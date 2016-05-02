@@ -1,15 +1,5 @@
 package hopcount;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author rivendell
- */
 public class ShortestPathFloyd {
 
     int dist[][], V;
@@ -19,29 +9,20 @@ public class ShortestPathFloyd {
     }
     int [][] floydWarshall(int graph[][]){
         int i, j, k;
-        /* Initialize the solution matrix same as input graph matrix.
-        Or we can say the initial values of shortest distances
-        are based on shortest paths considering no intermediate
-        vertex. */
+       // input matrisinin boyutlarında üzerinde işlem yapılacak 
+       // matris oluşturuluyor.
         for (i = 0; i < V; i++)
            for (j = 0; j < V; j++)
-               dist[i][j] = graph[i][j];
-    /* Add all vertices one by one to the set of intermediate vertices.
-        ---> Before start of a iteration, we have shortest
-                distances between all pairs of vertices such that
-                the shortest distances consider only the vertices in
-                set {0, 1, 2, .. k-1} as intermediate vertices.
-        ----> After the end of a iteration, vertex no. k is added
-                        to the set of intermediate vertices and the set
-                        becomes {0, 1, 2, .. k} */
+               dist[i][j] = graph[i][j];    
         for (k = 0; k < V; k++){
-                // Pick all vertices as source one by one
+                //  bütün node lar kaynak olarak tek tek almak işlemi yapılıyor.
                 for (i = 0; i < V; i++){
-                        // Pick all vertices as destination for the
-                        // above picked source
-                        for (j = 0; j < V; j++){
-                                // If vertex k is on the shortest path from
-                                // i to j, then update the value of dist[i][j]
+                // tüm node ları hedef node olarak tek tek almak için 
+                //2. döngü oluşturuluyor 
+                        for (j = 0; j < V; j++){                               
+                        // aşağıdaki if yapısında eğer herhangi bir k node u
+                        // i ile j arasında en kısa yol ise dist matrisinin i ve j 
+                        // noktasındaki değeri güncelleme işlemi yapılıyor.
                                 if (dist[i][k] + dist[k][j] < dist[i][j])
                                         dist[i][j] = dist[i][k] + dist[k][j];
                         }
@@ -68,15 +49,23 @@ public class ShortestPathFloyd {
             }
     }
     static int [][] AdjencyMatrix(int [][] mt){
+        // bu metod komşuluk matrisinin oluşturulması işlemini 
+        // yerine getirmektedir. node sayısı kadar square bir matris 
+        //oluşturulmaktadır.
         int [][] adj = new int[mt.length][mt.length];
         
         for (int i = 0; i < mt.length; i++) {
             for (int j = 0; j < mt.length; j++) {
+               // double tipindeki uzaklık değeri herbir node un diğer node lara olan 
+               // uzaklık bilgisinin tutulduğu değişkendir.
+               // sqrt((x2-x1)^2+(y2-y1)^2) hesabından uzaklık bulunmakta
                double uzaklik = Math.sqrt(Math.pow(mt[j][0] - mt[i][0], 2)+Math.pow(mt[j][1] - mt[i][1], 2));
                 if (i == j){
                     adj[i][i] = 0;
                     continue;
                 }
+                // hesaplanan uzaklık değeri eğer o andaki node un yarıçapı ile
+                // kesişiyor ise o alan 1 olarak yani erişim var olarak işaretleniyor
                 if (mt[i][2] >= uzaklik){
                     adj[i][j] = 1;
                  }                

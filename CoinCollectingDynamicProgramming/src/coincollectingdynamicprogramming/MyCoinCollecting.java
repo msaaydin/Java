@@ -14,7 +14,7 @@ import javax.swing.JFileChooser;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Stack;
+
 import javax.swing.DefaultListModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
        
@@ -112,7 +112,9 @@ public class MyCoinCollecting extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+    /**
+     Aşağıdaki metod matrisi ekrana yazdırma işlemi yapmaktadır,
+     */
     static void print_array (int array[][]){
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j <array[i].length; j++) {
@@ -121,6 +123,9 @@ public class MyCoinCollecting extends javax.swing.JFrame {
             System.out.println();
          }
     }
+    /* Aşağıdaki iki list model java Jform üzerinden bulunan 
+       jlist elemanlarına matrisleri doldurmak için kullanıldı
+    */
     DefaultListModel listmodel = new DefaultListModel();
     DefaultListModel listmodel2 = new DefaultListModel();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -131,11 +136,12 @@ public class MyCoinCollecting extends javax.swing.JFrame {
         File selectedFile = null;
         System.setProperty("line.delimeter", "\\");
         JFileChooser chooser = new JFileChooser();
+        
          FileNameExtensionFilter filter = new FileNameExtensionFilter("Text/Java files", "txt", "java");
          chooser.setFileFilter(filter);
      
         //chooser.setCurrentDirectory(new File(System.getProperty("user.home")));
-        chooser.setCurrentDirectory(new File("C:\\Users\\rivendell\\Desktop\\FSM\\algoritma analizi ve tasarımında ileri teknikler\\odev"));
+        //chooser.setCurrentDirectory(new File("C:\\Users\\rivendell\\Desktop\\FSM\\algoritma analizi ve tasarımında ileri teknikler\\odev"));
 
         int result = chooser.showOpenDialog(this);
         if (result == JFileChooser.APPROVE_OPTION) {
@@ -151,44 +157,58 @@ public class MyCoinCollecting extends javax.swing.JFrame {
             int index = 0;
             while ((line = br.readLine())!= null){
                 //System.out.println(line);
-                index++;
+                index++; // öncelikle dosyanın kaç satır veriden olştuğunu bulmak için 
+                        // bu while döngüsü içersinde satır sayısı bulunuyor.
             }
             br.close();            
             br = new BufferedReader(new FileReader(selectedFile));
+            // satır sayısı kadar elemanlı bir string array olulturuluyor
             String [] sCurrentLine =new String[index];
             index = 0;          
             System.out.println(sCurrentLine[0]);
+            // dosyadan veriler satır satır tekrar okunarak
+            // satır sayısı kadar oluşturulan string array e atılıyor.
             while ((line = br.readLine())!= null){
-                sCurrentLine[index] = line;
-                //System.out.println(sCurrentLine[index]);
+                sCurrentLine[index] = line;                
                 index++;
-            }
+            }            
             String [] strArray = sCurrentLine[0].split("\t");
+            // her bir satırdaki veriler birbirinden tab(\t) ile ayrıldığı için
+            // her bir satırdaki veriyi bir birinden ayırmak ve 
+            // her bir veriyi mxn elemanlı bir dizinin bir elemanına atamak için,
+            // coins isimli bir 3 boyutlu matrix olşturuldu
             int coins[][] = new int[index][strArray.length];
             for (int i = 0; i < index; i++){                
                 String [] strArray1 = sCurrentLine[i].split("\t");
                 String str = "";
                 for (int j = 0; j < strArray1.length; j++){
+                    // dosyaadan okunan her bir eleman string olarak alındı
+                    // string olarak alınan her bir elemanı integer' a çevirip
+                    // coins matrisini oluşturma işlemi yapılıyor.
                     coins[i][j] = Integer.parseInt(strArray1[j]);
+                    // coins matrisini ekranda bir jlist elemanında göstermek için
+                    // her bir satırı bir string e atıyoruz,
                     str += "    "+coins[i][j]; 
                 }
+                // matrisin her bir satırını listeye ekliyoruz ve bir sonraki satır için
+                // string i sıfırlıyoruz.                
                 listmodel.addElement(str);
                 str = "";                
             }
-            System.out.println("/*coins array yazılıyor...*/");
-            print_array(coins);
-           
-               int row = coins.length, column = 6; 
-               Stack stack; 
-               Entry entry; 
-               Entry temp; 
+            //System.out.println("/*coins array yazılıyor...*/");
+            //print_array(coins);           
+             int row = coins.length, column = 6;  
+             // maliyet matrisi tanımlanıyor.
+             int[][] F = new int[row][column];               
              
-             int[][] F = new int[row][column]; 
-             F[0][0] = coins[0][0]; 
-             stack = new Stack();
-             stack.clear();
-              
-            for(int j = 1; j < column; j++){
+            F[0][0] = coins[0][0];               
+            /*for(int j = 1; j < column; j++){
+                // aşağıdaki if kontrolü Coins collecting robot için kısıtları kontrol ediyor
+                // öncelikle robotun herhangi bri hücreye girip giremediğini kontrol etmek için
+                // o hücrenin yasak olup olmadığına bakıyor eğer değer -255 ise 
+                // robot o hücreye uğrayamıyor veya 
+                // robotun o zamana kadar topladığı değer eğer geldiği hücredeki değerden,
+                //küçük ise o hücreye uğramasın kontrolü yapılmaktadır.
                 if((coins[0][j] == -255) || (F[0][j-1] + coins[0][j] < 0 ))
                     break;
                  F[0][j] = F[0][j-1] + coins[0][j]; 
@@ -197,16 +217,21 @@ public class MyCoinCollecting extends javax.swing.JFrame {
                 if ((coins[i][0] == -255) || (F[i-1][0] + coins[i][0]) < 0)
                     break;
                   F[i][0] = F[i-1][0] + coins[i][0]; 
-            }
+            }*/
             System.out.println("/*Fonksiyon array yazırılıyor....*/");
-            print_array(F);
+          //  print_array(F);
             // F(n) hesaplanıyor...
             for( int i = 1; i < row; i++) 
-            {     
-              
+            {                   
                 for( int j = 1; j < column; j++) 
                 { 
-                    if((coins[i][j] != -255))
+                // aşağıdaki if kontrolü Coins collecting robot için kısıtları kontrol ediyor
+                // öncelikle robotun herhangi bri hücreye girip giremediğini kontrol etmek için
+                // o hücrenin yasak olup olmadığına bakıyor eğer değer -255 ise 
+                // robot o hücreye uğrayamıyor veya 
+                // robotun o zamana kadar topladığı değer eğer geldiği hücredeki değerden,
+                //küçük ise o hücreye uğramasın kontrolü yapılmaktadır.
+                    if((coins[i][j] != -255) || (F[i-1][j-1] + coins[i][j] < 0 ))
                     {                        
                      int value  = Math.max(F[i][j-1], F[i-1][j]) + coins[i][j];
                      if ((value + coins[i][j] >= 0))
@@ -219,6 +244,8 @@ public class MyCoinCollecting extends javax.swing.JFrame {
             print_array(F);
             // path hesaplanıyor....
             System.out.println("path matisi:................");
+            // path hesabında matris üzerine robotun gittiği yol üzerine 
+            // P harfi eklemek için Maliyet matrisini String e çeviriyoruz
             int i = row-1, j = column - 1; 
             String path[][] = new String[row][column];
             for (int k = 0; k < row; k++) {
@@ -230,6 +257,12 @@ public class MyCoinCollecting extends javax.swing.JFrame {
           path[0][0] = "P";             
           while(i >0 && j > 0)
           {
+            // aşağıdaki if kontrolünde robotun bitiş noktasından 
+            // başlangıç noktasına doğru geriye giderek, geldiği yolun 
+            //  belirlenmesi işlemini yapıyoruz,
+            // bir önceki satır ve o andaki sütun toplamı maliyet matrisi ve 
+            // coins matrisindeki değer ile eşit ise yol matrisindeki o anki noktaya 
+            // P harfini ekle.
             if( F[i][j] == F[i-1][j] + coins[i][j])
             {              
               path[i-1][j] = "P";             
@@ -241,12 +274,16 @@ public class MyCoinCollecting extends javax.swing.JFrame {
              j--;
             }
           }
+          // toplanan değer maliyet matrisinin son satır son sütunundan
+          //alınıyor
           System.out.printf("Toplanan para miktarı %s \n", F[row-1][column-1]);
           jLabel2.setText("Toplanan Para miktarı :"+F[row-1][column-1]);
-          System.out.println("Gelinen yol :");
+          
          
           // path matriisi...
           for (int k = 0; k < row; k++) {
+            // oluşturulan path matrisini ekrandaki jlist2 elemanına 
+            // yazdırma işlemi yapıyoruz
               String str = "";
                 for (int l = 0; l < column; l++) {
                    str +="  "+path[k][l];

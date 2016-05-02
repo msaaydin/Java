@@ -23,7 +23,18 @@ public class BagliListe {
         lst1.addElementFront(623);
         lst1.addElementFront(98);
         lst1.addElementFront(4);
-        lst1.printList();      
+        lst1.addElementLast(56);
+        lst1.addElementLast(563763);
+        lst1.addElementLast(34);
+        lst1.addElementLast(4542);
+        lst1.addElementLast(4567);
+        
+        lst1.printList();    
+        lst1.removeEvenNodes();
+        lst1.printList();
+        
+        
+     
         
     }
     

@@ -188,12 +188,16 @@ public class Homework3 extends javax.swing.JFrame {
         // text areadaki tüm değerleri oku her bir satırı 
         //bir eleman olacak şekilde bir string array e doldur         
         String[] lines = jTextArea1.getText().split("\\n"); 
-        
+       // text area ya girilen her bir satır elemanları arasında 
+       // bir tab boşluk bırakılmıştır, ve bu bilgi kullanılarak tek bir satır 
+       // split metodu ile ayrı ayrı elemanlar olarak diziye aktarılmıştır.
        String [] strArray = lines[0].split("\t");            
        int location[][] = new int[lines.length][strArray.length];
         for (int i = 0; i < lines.length; i++) {
             String [] strArray1 = lines[i].split("\t");
             for (int j = 0; j < strArray.length; j++) {
+                // okunan her bir değer string ten int e 
+                // çevrilerek lokasyon matrisi oluşturuldu
                 location[i][j] = Integer.parseInt(strArray1[j]);
             }
         }
@@ -204,26 +208,41 @@ public class Homework3 extends javax.swing.JFrame {
 //            }
 //            System.out.println("");
 //        }
+        // lokasyon matrisi kullanılarak 
+        // komşuluk matrisinin hesaplanması için AdjencyMatrix metodu kullanıldı
+        
         int adjMatrix[][] = ShortestPathFloyd.AdjencyMatrix(location);
+        // komşulık matrisi kullanılarak floydWarshallmetodu ile 
+        // en kısa yol matrisi hesaplandı
         ShortestPathFloyd shrt = new ShortestPathFloyd(adjMatrix.length);
+        // floydWarshall metodundan dönen değer en kısa yol matrisi olarak 
+        // hops isimli matriste tutuluyor.
          hops = shrt.floydWarshall(adjMatrix);
         /*********************************************/     
-      
+        // hops matrisinin jtextArea2 de formatlı gösterilmesi için 
+        // aşağıdaki iki döngü kullanılmıştır.
         for (int i = 0; i < adjMatrix.length; i++) {
             String temp = "";
             for (int j = 0; j < adjMatrix.length; j++) {
                 if(i != j){
+                // eğer en kısa yol matrisinde değer 999 ise yani herhangi bir 
+                // node başka bir node a ulaşamıyorsa yani sonsuz ise oraya 
+                // hopsayısı olarak 0 yaz.
                     if (hops[i][j] == 999){
                         //System.out.print("[" +i+ "=>"+j+"]="+ "0\t");
                         temp +="[" +i+ "=>"+j+"]="+ "0\t";
                     }
                     else{
+                      // bir node başkabir node a erişebiliyor ise hops matrisinden 
+                      //hop sayısını al ve onu JtextArea ya yaz.
                       // System.out.print("[" +i+ "=>"+j+"]="+hops[i][j]+"\t");
                        temp +="[" +i+ "=>"+j+"]="+hops[i][j]+"\t";
                     }                      
                 }                
             }
             temp +="\n";
+            // var olan değerlerin üstüne yeni değerleri yazmak için
+            // append metodunu kullandım
             jTextArea2.append(temp);
             //temp = "";
             System.out.println("");
@@ -234,15 +253,21 @@ public class Homework3 extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        // programın başlangıç aşamasında default değerlerin gelmesi 
+        // sabit node bilgileri girildi.
         jTextArea1.setText("2\t2\t1\n5\t3\t4\n9\t2\t2\n8\t6\t4\n6\t6\t2\n1\t6\t4\n4\t8\t3\n2\t10\t3\n10\t8\t5");
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         int length = hops.length;
+        // bu metod içinde buton2 de verilen source tan destination a 
+        // kaç adet hop sayısı ile gidildiğini göstermek için 
+        // butonun on click metodunun içine bu hesabı yapacak algoritma yazılmıştır.
         int sr = Integer.parseInt(jTextField1.getText());
         int dest = Integer.parseInt(jTextField2.getText());
-        
+        // yazılan source ve destination numaraları limitler 
+        // dışında mı değilmi bu kontrol yapılıyor.
         if ((sr > length-1 ||  sr < 0) || (dest > length -1 || dest< 0 )){
             JOptionPane.showMessageDialog(this,"Girilen değerler node sayısı aralığında olmalıdır... ");
         }

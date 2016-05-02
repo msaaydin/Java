@@ -1,17 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package bst;
 
-/**
- *
- * @author rivendell
- */
 public class BinarySearchTree {
- 
+       private int level = 1;
        Node root;
+        int getLevel(){
+            return level;
+        }
         public BinarySearchTree()
         { 
             root = null; 
@@ -21,6 +16,7 @@ public class BinarySearchTree {
             Node current = root;
             while(current.item != val)
             {
+                level++;
                 if(val < current.item)
                     current = current.leftChild;
                 else
@@ -30,8 +26,26 @@ public class BinarySearchTree {
             }
             return current;
         }
+       /* public int findSibling(int data){
+       
+               
+        }*/
+        public double fnc(Node head){
+            double var1,var2,var3;
+            if(head == null){
+                var1 = 0;
+                return var1;
+            }
+            else {
+                var2 = fnc(head.leftChild);
+                var3 = fnc(head.rightChild);
+                var1 = head.item + var2 + var3;
+                return var1;
+            }
+        }
         public void insert(int id)
-        {
+        {    
+            
             Node newNode = new Node();
             newNode.item = id;
             if(root==null)
@@ -64,6 +78,41 @@ public class BinarySearchTree {
                 } 
             } 
         }
+        // insert recursive
+          public Node insertRecursive (Node r, int item)
+          {
+            if (r == null)
+            {
+                Node n = new Node();
+                n.item = item;
+                root = n;
+                return n;
+            }             
+            else {
+              if (item < r.item)
+                 r.leftChild  = insertRecursive(r.leftChild, item);
+              else
+                 r.rightChild = insertRecursive(r.rightChild,item);
+              return r;
+            }
+          }
+        
+         public Node findMaxRecursive(Node max){
+            
+             if(max.rightChild == null){
+                 return max;
+             }
+             return findMaxRecursive(max.rightChild);
+         }
+         
+         public int findMaxIterative(){
+            Node temp = root;
+            while(temp.rightChild != null){
+                temp = temp.rightChild;
+            }
+                    
+            return temp.item;
+         }
         
         public boolean delete(int val) 
         {
@@ -154,7 +203,59 @@ public class BinarySearchTree {
          return 1;
        else  
          return LeafCount(node.leftChild)+ LeafCount(node.rightChild);       
-    }  
-
+     } 
+       int sayac = 0;
+     public int findFull(Node node){
+      
+        root = node;
+         if(node == null)
+             return 0;
+         if (node.leftChild !=null && node.rightChild != null){
+             sayac++;
+             return sayac;
+         }             
+         else
+             return findFull(node.leftChild) + findFull(node.rightChild);         
+        
+         
+     }
+     public void display(Node n)
+    {
+        if(n==null)
+            return;
+        display(n.leftChild);
+        System.out.print(n.item+"\t");
+        display(n.rightChild);
+    }
+     
+    
+     public void postorder(Node r)
+     {
+         if (r != null)
+         {
+             postorder(r.leftChild);             
+             postorder(r.rightChild);
+             System.out.print(r.item +" ");
+         }
+     }
+     public void preorder(Node r)
+     {
+         if (r != null)
+         {
+             System.out.print(r.item +" ");
+             preorder(r.leftChild);             
+             preorder(r.rightChild);
+         }
+     }   
+     
+     public void inorder(Node r)
+     {
+         if (r != null)
+         {
+             inorder(r.leftChild);
+             System.out.print(r.item +" ");
+             inorder(r.rightChild);
+         }
+     }
         
 }

@@ -23,7 +23,7 @@ public class Bliste {
                 for (int i = 0; i < 1000000; i++) {
                     
                 }
-                System.out.print(temp.data + " :"+t+"=>");
+                System.out.print(temp.data + "=>");
                 
                 
                 temp = temp.next;
@@ -46,6 +46,31 @@ public class Bliste {
            temp.next = newNode; 
            
      }
+   public void removeEvenNodes(){
+       Node temp = head;       
+       if (temp == null){
+           throw new myException("liste boş...");
+       }
+       else{
+           while(temp.next != null){
+               if (temp.data % 2 == 0){
+                   temp = temp.next;
+                   head = temp;
+               }
+               else if (temp.next.data % 2 == 0 ){
+                   if (temp.next.next == null){
+                       temp.next = null;
+                   }else{
+                       temp.next = temp.next.next;
+                   }                    
+                       
+               }
+               else{
+                   temp = temp.next;
+               }              
+           }          
+       }
+   }
    public void addElementFront(int data)
     {
            Node newNode = new Node();
@@ -53,6 +78,7 @@ public class Bliste {
            newNode.time = System.nanoTime();
            newNode.next = head;
            head = newNode;  
+            
            
     }
    void insertAfter(int data, int position){

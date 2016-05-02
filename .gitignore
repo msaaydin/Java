@@ -57,3 +57,35 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+/Recursive_test/nbproject/private/
+/Recursive_test/build/
+/HorspoolStringMatcher/nbproject/private/
+/HorspoolStringMatcher/build/
+/HorspoolStringMatcher/dist/
+/Recursive_test/dist/
+/BST/nbproject/private/
+/BST/build/
+/RodCuttingDynamicProgramming/nbproject/private/
+/RodCuttingDynamicProgramming/build/
+/CoinCollectingDynamicProgramming/nbproject/private/
+/CoinCollectingDynamicProgramming/build/
+/CoinCollectingDynamicProgramming/dist/
+/MaxHeap/nbproject/private/
+/MaxHeap/build/
+/BST/dist/
+/WarShallAlgorithm/nbproject/private/
+/WarShallAlgorithm/build/
+/HopCount/nbproject/private/
+/HopCount/build/
+/HopCount/dist/
+/Java_Generics/nbproject/private/
+/Java_Generics/build/
+/BagliListe/nbproject/private/
+/BagliListe/build/
+/BagliListe/dist/
+/DoublylinkedListGeneric/nbproject/private/
+/DoublyLinkedListNonGeneric/nbproject/private/
+/DoublyLinkedListNonGeneric/build/
+/Stack_/nbproject/private/
+/HeapTreeEx/nbproject/private/
+/HeapTreeEx/build/
