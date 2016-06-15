@@ -60,7 +60,7 @@ public class BinaryMinHeap {
         }
     }
 
-    private void siftUp(int nodeIndex) {
+    private void siftUp(int nodeIndex) { // heapfy
         int parentIndex, tmp;
         if (nodeIndex != 0) {
             parentIndex = getParentIndex(nodeIndex);

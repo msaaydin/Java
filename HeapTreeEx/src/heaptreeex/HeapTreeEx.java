@@ -23,9 +23,10 @@ public class HeapTreeEx {
       h.insert(5);
       h.insert(2355554);
       h.insert(2344);
-      
+      h.removeMin();
       System.out.println(h.getMinimum());
       
+     
     }
     
 }
