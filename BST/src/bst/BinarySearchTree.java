@@ -176,6 +176,30 @@ public class BinarySearchTree {
             } 
             return true;
         }
+        int getMinValue(){
+            Node current  = root;
+            if (current == null){
+                
+                System.out.println("Tree is empty");
+                return -9999999;
+            }
+            else
+            {
+                while(current.leftChild != null){
+                     current = current.leftChild; 
+                }
+                return current.item;
+            }
+            
+        }
+        public Node findMaxValueRecursive(Node max){
+            
+             if(max.rightChild == null){
+                 return max;
+             }
+             return findMaxRecursive(max.rightChild);
+         }
+                
         
         private Node findSuccessor(Node delNode)
         {
@@ -216,8 +240,7 @@ public class BinarySearchTree {
          }             
          else
              return findFull(node.leftChild) + findFull(node.rightChild);         
-        
-         
+                
      }
      public void display(Node n)
     {
