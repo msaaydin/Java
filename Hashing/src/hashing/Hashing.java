@@ -24,9 +24,10 @@ public class Hashing {
         tbl.insert(58);
         tbl.insert(34);
         tbl.insert(6889);
-        tbl.insert(12);
-        
+        tbl.insert(12);        
         tbl.printTable();
+        
+        
     }
     
 }
