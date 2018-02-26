@@ -11,6 +11,6 @@ package w3;
  */
 public class BitOperators {
     public static void main(String[] args) {
-        
+        int a = 
     }
 }
