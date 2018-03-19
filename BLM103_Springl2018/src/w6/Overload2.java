@@ -14,7 +14,7 @@ public class Overload2 {
     public static void yazdir(String s) {
         System.out.println(s);
     }
-     public static void yazdir() {
+    public static void yazdir() {
         System.out.println("hello ");
     }
 
