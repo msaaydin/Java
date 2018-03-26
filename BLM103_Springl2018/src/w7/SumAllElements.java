@@ -5,22 +5,30 @@
  */
 package w7;
 
+import java.util.Random;
+
 /**
  *
  * @author Erebor
  */
 public class SumAllElements {
     public static void main(String[] args) {
-        int [] array1 = new int[100];
-        for (int i = 0; i < array1.length; i++) {
-            array1[i] = (i+2)*2;
-            System.out.print(array1[i]+" - ");
+        int [] elmaSayisi = new int[10];
+        Random r = new Random();
+        for (int i = 0; i < elmaSayisi.length; i++) {
+            elmaSayisi[i] = r.nextInt(250);
+            System.out.println(i+"."+elmaSayisi[i]);
+        }    
+        int kacinci = 0;
+        int enbuyukElma = -1;
+        for (int i = 0; i < elmaSayisi.length; i++) {
+            if (elmaSayisi[i] > enbuyukElma){
+                enbuyukElma = elmaSayisi[i];
+                kacinci = i;
+            }
         }
-        System.out.println();
-        int toplam = 0;
-        for (int i = 0; i < array1.length; i++) {
-            toplam += array1[i];
-        }
-        System.out.println("array toplamı = "+toplam);
+        System.out.println("en buyuk elma = "+enbuyukElma);
+        System.out.println("en buyuk kacinci elma = "+kacinci);
+        
     }
 }
