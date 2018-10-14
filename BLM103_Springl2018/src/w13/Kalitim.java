@@ -19,5 +19,6 @@ public class Kalitim {
     }
     public static void m(Object o){
         System.out.println(o.toString());
+        
     }
 }

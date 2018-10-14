@@ -9,7 +9,7 @@ package w13;
  *
  * @author Erebor
  */
-public class B extends Object{
+public class B{
     private int a = 1345;
 //   public B(){
 //        System.out.println("ben B clasıyım");
