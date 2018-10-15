@@ -10,7 +10,8 @@ package w4;
  * @author Erebor
  */
 public class ForLoop {
+
     public static void main(String[] args) {
-        System.out.println("test");
+      
     }
 }
