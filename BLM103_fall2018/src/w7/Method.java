@@ -57,7 +57,7 @@ public class Method {
             ust *= -1;
             for (int i = 0; i < ust; i++) {
                 sonuc *= taban;
-            }            
+            }
             return 1.0 / sonuc;
         } else {
             for (int i = 0; i < ust; i++) {
@@ -65,6 +65,34 @@ public class Method {
             }
             return sonuc;
         }
+
+    }
+
+    public static boolean isPrime(int num) {
+        boolean durum = true;
+        if (num == 2) {
+            return true;
+        } else {
+            for (int i = 2; i < num; i++) {
+               if (num % i == 0){
+                   durum = false;
+                   return durum;
+               }
+            }
+           return durum; 
+        }
+
+    }
+
+    public static void mySwap(int n1, int n2) {
+        // n1 = num1;
+        // n2 = num2;
+        int temp; // boş bardak
+        // n1 kola
+        // n2 ayran
+        temp = n1;
+        n1 = n2;
+        n2 = temp;
 
     }
 
@@ -88,6 +116,11 @@ public class Method {
         System.out.println("ortalama = " + ort);
         double ustSonuc = myPow(2, -5);
         System.out.println("ust = " + ustSonuc);
-
+        int num1 = 23;
+        int num2 = 45;
+        mySwap(num1, num2);
+        System.out.println("num1 = " + num1);
+        System.out.println("num2 = " + num2);
+        System.out.println(isPrime(96));
     }
 }
