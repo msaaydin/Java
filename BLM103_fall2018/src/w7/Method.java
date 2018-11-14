@@ -93,7 +93,7 @@ public class Method {
         temp = n1;
         n1 = n2;
         n2 = temp;
-
+       
     }
 
     public static void main(String[] args) {
@@ -121,6 +121,6 @@ public class Method {
         mySwap(num1, num2);
         System.out.println("num1 = " + num1);
         System.out.println("num2 = " + num2);
-        System.out.println(isPrime(96));
+        System.out.println(isPrime(96));        
     }
 }
