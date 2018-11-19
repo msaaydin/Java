@@ -66,7 +66,27 @@ public class PassByValueReference {
         }
         return pass;
     }
-
+    static void mySwap(int [] array){
+        int max = array[0];
+        int min = array[0];
+        int maxindex = 0, minindex = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max){
+                max = array[i];
+                maxindex = i; // yeni bir max buldun tamammı
+                // ve o max ta buradadır bunu tutman gerekiyor.....yorrr
+            }
+            if (array[i] < min){
+                min = array[i];
+                minindex = i; // yeni bir min buldun tamammı
+                // ve o min de buradadır bunu tutman gerekiyor.....yorrr
+            }
+        }
+       
+        int bosbardak = array[maxindex]; // kola burada
+        array[maxindex] = array[minindex]; // ayranı boşalan kolanın yerine döktük.
+        array[minindex] = bosbardak;
+    }
     public static void main(String[] args) {
         int[] array = new int[10];
         int[] array2 = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -77,6 +97,9 @@ public class PassByValueReference {
             array[i] = r.nextInt(100);
             System.out.print(array[i] + " ");
         }
+        mySwap(array);
+        System.out.println("");
+        printArray(array);
         System.out.println("\n**************");
         printArray(array2);
         metod1(array2);
