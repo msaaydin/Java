@@ -15,7 +15,7 @@ public class Circle {
     public Circle() {
         System.out.println("merhaba ben circle class ıyım ve şu anda oluturuldummmm...");
     }
-    double getArea(){
+    public double getArea(){
         return radius*radius*Math.PI;
     }
 }
